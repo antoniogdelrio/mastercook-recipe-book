@@ -1,0 +1,15 @@
+.preparation-section > h2 {
+    margin: 64px 0;
+}
+
+.preparation-section > h2 {
+    margin-bottom: 32px;
+}
+
+.steps {
+    list-style-position: inside;
+}
+
+.steps > li {
+    margin-bottom: 16px;
+}
