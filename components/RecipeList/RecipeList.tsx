@@ -1,5 +1,5 @@
 import RecipeCard, { RecipeCardSchema } from "../RecipeCard/RecipeCard"
-import styles from "./RecipeList.module.css"
+import styles from "./RecipeList.module.scss"
 
 interface RecipeListSchema {
     cards: RecipeCardSchema[]
@@ -8,10 +8,10 @@ interface RecipeListSchema {
 export default function RecipeList(props: RecipeListSchema) {
     return (
         <div className={styles['list-container']}>
-            {props.cards.map(card => (
+            {props.cards?.map(card => (
                 <RecipeCard
                     title={card.title}
-                    image={card.image}
+                    image={`/${card.image}`}
                     difficulty={card.difficulty}
                     time={card.time}
                 />

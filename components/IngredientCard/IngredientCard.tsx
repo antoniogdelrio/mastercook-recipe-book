@@ -1,4 +1,4 @@
-import styles from "./IngredientCard.module.css"
+import styles from "./IngredientCard.module.scss"
 
 export interface IngredientCardSchema {
     quantity: string,

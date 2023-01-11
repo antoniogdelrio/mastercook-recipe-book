@@ -1,4 +1,4 @@
-import styles from "./PreparationSection.module.css"
+import styles from "./PreparationSection.module.scss"
 
 interface PreparationSection {
     steps: string[]

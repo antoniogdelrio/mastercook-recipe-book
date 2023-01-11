@@ -1,9 +1,10 @@
 import Image from "next/image";
+import { BLUR_DATA_URL } from "../../constants/general";
 import ClockIcon from "../icons/ClockIcon";
 import PersonsIcon from "../icons/PersonsIcon";
 import PuzzleIcon from "../icons/PuzzleIcon";
 import { RecipeCardSchema } from "../RecipeCard/RecipeCard";
-import styles from "./RecipeHead.module.css"
+import styles from "./RecipeHead.module.scss"
 
 interface RecipeHeadProps extends RecipeCardSchema {
     serveQuantity: number
@@ -17,7 +18,7 @@ export default function RecipeHead (props : RecipeHeadProps) {
                 alt={props.title}
                 width={900}
                 height={400}
-                blurDataURL="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOcOHnyfwAGLAK4yvlhMQAAAABJRU5ErkJggg=="
+                blurDataURL={BLUR_DATA_URL}
                 placeholder="blur"
             />
             <h1>{props.title}</h1>

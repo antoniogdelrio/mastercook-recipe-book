@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import styles from "./Header.module.css"
+import { BLUR_DATA_URL } from '../../constants/general'
+import styles from "./Header.module.scss"
 
 export default function Header () {
     return (
@@ -9,6 +10,8 @@ export default function Header () {
                 alt="Mastercook Logo"
                 width={375}
                 height={100}
+                blurDataURL={BLUR_DATA_URL}
+                placeholder="blur"
             />
         </header>
     )

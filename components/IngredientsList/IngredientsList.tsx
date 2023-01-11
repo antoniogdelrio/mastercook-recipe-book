@@ -1,5 +1,5 @@
 import IngredientCard, { IngredientCardSchema } from "../IngredientCard/IngredientCard"
-import styles from "./IngredientsList.module.css"
+import styles from "./IngredientsList.module.scss"
 
 interface IngredientListSchema {
     cards: IngredientCardSchema[]
