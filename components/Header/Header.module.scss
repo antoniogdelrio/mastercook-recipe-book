@@ -1,0 +1,12 @@
+.header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+
+    img {
+        @media screen and (max-width: 768px) {
+            width: 80%;
+            min-width: 400px;
+        }
+    }
+}

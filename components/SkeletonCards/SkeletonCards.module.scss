@@ -1,0 +1,36 @@
+.skeleton-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 16px;
+    justify-items: center;
+
+    @media screen and (max-width: 1024px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width: 768px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .card {
+        width: 100%;
+        max-width: 250px;
+        height: 173px;
+        animation: shimmer 0.5s infinite;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background: rgb(212,212,212);
+        background: linear-gradient(90deg, rgba(212,212,212,1) 0%, rgba(133,133,133,1) 100%);
+    }
+    50% {
+        background: rgb(212,212,212);
+        background: linear-gradient(90deg, rgba(212,212,212,1) 47%, rgba(133,133,133,1) 100%);
+    }
+    100% {
+        background: rgb(212,212,212);
+        background: linear-gradient(90deg, rgba(212,212,212,1) 77%, rgba(133,133,133,1) 100%);
+    }
+}
