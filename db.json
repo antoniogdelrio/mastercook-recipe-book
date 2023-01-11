@@ -1,0 +1,24 @@
+{
+  "recipes": [
+    { "id": 1, "title": "Temaki", "image": "temaki.jpg", "time": 123, "difficulty": "Medium" },
+    { "id": 2, "title": "Bolo de Chocolate", "image": "temaki.jpg", "time": 100, "difficulty": "Medium" },
+    { "id": 3, "title": "Frango Assado", "image": "frango-assado.webp", "time": 60, "difficulty": "Easy" },
+    { "id": 4, "title": "Hot roll", "image": "temaki.jpg", "time": 50, "difficulty": "Medium" },
+    { "id": 5, "title": "Escondidinho de carne seca", "image": "temaki.jpg", "time": 123, "difficulty": "Medium" },
+    { "id": 6, "title": "Macarrão à Bolonhesa", "image": "temaki.jpg", "time": 150, "difficulty": "Medium" },
+    { "id": 7, "title": "Iscas de Frango", "image": "temaki.jpg", "time": 10, "difficulty": "Medium" },
+    { "id": 8, "title": "Salmão assado", "image": "temaki.jpg", "time": 20, "difficulty": "Medium" },
+    { "id": 9, "title": "Risoto de Salmão", "image": "temaki.jpg", "time": 300, "difficulty": "Easy" },
+    { "id": 10, "title": "Risoto de Funghi", "image": "temaki.jpg", "time": 145, "difficulty": "Hard" },
+    { "id": 11, "title": "Hambúrguer Artesanal", "image": "temaki.jpg", "time": 123, "difficulty": "Hard" },
+    { "id": 12, "title": "Mini Churros", "image": "temaki.jpg", "time": 123, "difficulty": "Hard" },
+    { "id": 13, "title": "Torta Holandesa", "image": "temaki.jpg", "time": 120, "difficulty": "Hard" },
+    { "id": 14, "title": "Omelete Gourmet", "image": "temaki.jpg", "time": 120, "difficulty": "Hard" },
+    { "id": 15, "title": "Brigadeiro Gourmet", "image": "temaki.jpg", "time": 120, "difficulty": "Hard" },
+    { "id": 16, "title": "Doce de Abóbora", "image": "temaki.jpg", "time": 120, "difficulty": "Hard" },
+    { "id": 17, "title": "Macarrão Alho e Óleo", "image": "temaki.jpg", "time": 120, "difficulty": "Hard" },
+    { "id": 18, "title": "Beijinho", "image": "temaki.jpg", "time": 120, "difficulty": "Hard" },
+    { "id": 19, "title": "Feijoada", "image": "temaki.jpg", "time": 120, "difficulty": "Hard" },
+    { "id": 20, "title": "Pizza caseira", "image": "temaki.jpg", "time": 120, "difficulty": "Hard" }
+  ]
+}
