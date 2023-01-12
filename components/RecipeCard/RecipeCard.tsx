@@ -6,6 +6,7 @@ import styles from "./RecipeCard.module.scss"
 type Difficulty = "Hard" | "Medium" | "Easy"
 
 export interface RecipeCardSchema {
+    id: number,
     title: string,
     image: string,
     time: number,
@@ -16,7 +17,7 @@ export default function RecipeCard (props: RecipeCardSchema) {
     return (
         <Link
             style={{ textDecoration: 'none' }}
-            href="/recipes/4"
+            href={`/recipes/${props.id}`}
         >
             <div className={styles.card}>
                 <Image
