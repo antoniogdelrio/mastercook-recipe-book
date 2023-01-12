@@ -5,6 +5,7 @@ import Header from "../components/Header/Header";
 import Pagination from "../components/Pagination/Pagination";
 import { RecipeCardSchema } from "../components/RecipeCard/RecipeCard";
 import RecipeList from "../components/RecipeList/RecipeList";
+import SearchBar from "../components/SearchBar/SearchBar";
 import SkeletonCards from "../components/SkeletonCards/SkeletonCards";
 import { RECIPES_URL } from "../constants/apiUrls";
 import useRecipes from "../hooks/useRecipes";
@@ -25,16 +26,17 @@ export default function Home({ recipes, totalItems, queryPage } : HomeProps) {
     const newPage : number = Number(page) + delta
     setPage(newPage)
     router.query.page = `${newPage}`
-    router.push(router)
+    router.push(router, undefined, {
+      scroll: false
+    })
   }
-
-  console.log(queryPage === page, queryPage, page, recipes, isLoading)
 
   const cards = queryPage === page ? recipes : paginatedRecipes
 
   return (
     <>
       <Header/>
+      <SearchBar onSearch={() => null} />
       {
         isLoading ?
         <SkeletonCards quantity={9} /> :
