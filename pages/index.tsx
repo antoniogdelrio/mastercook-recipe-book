@@ -19,31 +19,16 @@ interface HomeProps {
 }
 
 export default function Home({ recipes, queryPage, querySearch } : HomeProps) {
-  const [page, setPage] = useState(queryPage)
-  const [searchPayload, setSearchPayload] = useState(querySearch)
-  const router = useRouter()
 
-  const { data: paginatedRecipes, isLoading } = useRecipes(Number(page), searchPayload, {
+  const {
+    data: paginatedRecipes,
+    isLoading,
+    currentPage,
+    onChangePage,
+    onSearch
+  } = useRecipes(Number(queryPage), querySearch, {
     data: recipes, totalItems: 50
   })
-
-  const handleChangePage = (delta : number) => () => {
-    const newPage : number = Number(page) + delta
-    setPage(newPage)
-    router.query.page = `${newPage}`
-    router.push(router, undefined, {
-      scroll: false
-    })
-  }
-
-  const handleSearch = (payload : string) => {
-    setSearchPayload(payload)
-    setPage(1)
-    router.query.search = payload
-    router.push(router, undefined, {
-      scroll: false
-    })
-  }
 
   const cards = paginatedRecipes?.data || []
 
@@ -52,16 +37,16 @@ export default function Home({ recipes, queryPage, querySearch } : HomeProps) {
   return (
     <>
       <Header/>
-      <SearchBar onSearch={handleSearch} />
+      <SearchBar onSearch={onSearch} />
       {
         isLoading ?
         <SkeletonCards quantity={9} /> :
         <RecipeList cards={cards} />
       }
       <Pagination
-        goNextPage={handleChangePage(+1)}
-        goPreviousPage={handleChangePage(-1)}
-        currentPage={page}
+        goNextPage={onChangePage(+1)}
+        goPreviousPage={onChangePage(-1)}
+        currentPage={currentPage}
         pageSize={9}
         totalItems={totalItems}
       />
