@@ -1,18 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
-import { RECIPES_URL } from "../constants/apiUrls";
 import { RECIPES_KEY } from "../constants/queryKeys";
+import { getRecipes } from "../services/recipes";
 
-export default function useRecipes (page : number, enabled: boolean) {
+export default function useRecipes (page : number, searchPayload: string, initialData: any) {
     const { data, isLoading } = useQuery({
-        queryKey: [RECIPES_KEY, page],
+        queryKey: [RECIPES_KEY, page, searchPayload],
         queryFn: async () => {
-            const res = await fetch(`${RECIPES_URL}?_page=${page}&_limit=9`)
-            return res.json()
+            const data = await getRecipes(page, searchPayload)
+            return data
         },
-        enabled
+        initialData
     })
-
     return {
-        data, isLoading: isLoading && enabled
+        data, isLoading
     }
 }

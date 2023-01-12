@@ -9,18 +9,23 @@ import SearchBar from "../components/SearchBar/SearchBar";
 import SkeletonCards from "../components/SkeletonCards/SkeletonCards";
 import { RECIPES_URL } from "../constants/apiUrls";
 import useRecipes from "../hooks/useRecipes";
+import { getRecipes } from "../services/recipes";
 
 interface HomeProps {
   recipes: RecipeCardSchema[],
   totalItems: number,
-  queryPage: number
+  queryPage: number,
+  querySearch: string
 }
 
-export default function Home({ recipes, totalItems, queryPage } : HomeProps) {
+export default function Home({ recipes, queryPage, querySearch } : HomeProps) {
   const [page, setPage] = useState(queryPage)
+  const [searchPayload, setSearchPayload] = useState(querySearch)
   const router = useRouter()
 
-  const { data: paginatedRecipes, isLoading } = useRecipes(Number(page), queryPage !== page)
+  const { data: paginatedRecipes, isLoading } = useRecipes(Number(page), searchPayload, {
+    data: recipes, totalItems: 50
+  })
 
   const handleChangePage = (delta : number) => () => {
     const newPage : number = Number(page) + delta
@@ -31,12 +36,23 @@ export default function Home({ recipes, totalItems, queryPage } : HomeProps) {
     })
   }
 
-  const cards = queryPage === page ? recipes : paginatedRecipes
+  const handleSearch = (payload : string) => {
+    setSearchPayload(payload)
+    setPage(1)
+    router.query.search = payload
+    router.push(router, undefined, {
+      scroll: false
+    })
+  }
+
+  const cards = paginatedRecipes?.data || []
+
+  const totalItems = paginatedRecipes?.totalItems || 0
 
   return (
     <>
       <Header/>
-      <SearchBar onSearch={() => null} />
+      <SearchBar onSearch={handleSearch} />
       {
         isLoading ?
         <SkeletonCards quantity={9} /> :
@@ -55,15 +71,14 @@ export default function Home({ recipes, totalItems, queryPage } : HomeProps) {
 
 export const getServerSideProps : GetServerSideProps = async (context) =>  {
   const queryPage = Number(context.query.page) || 1
-  const res = await fetch(`${RECIPES_URL}?_page=${queryPage}&_limit=9`)
-  const totalItems = res.headers.get('X-Total-Count')
-  const recipes = await res.json()
-
+  const querySearch = (context.query.search || '') as string
+  const { data } = await getRecipes(queryPage, querySearch)
+  const recipes = data
   return {
     props: {
       recipes,
-      totalItems,
-      queryPage
+      queryPage,
+      querySearch
     }
   }
 }
