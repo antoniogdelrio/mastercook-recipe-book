@@ -11,6 +11,8 @@
     color: #000;
     transition: transform 0.2s;
     transform: scale(1);
+    align-self: stretch;
+    justify-self: center;
 
     &:hover {
         transform: scale(1.05);

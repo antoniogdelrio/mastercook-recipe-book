@@ -1,6 +1,6 @@
 import styles from "./Pagination.module.scss"
 
-interface PaginationProps {
+interface Props {
     goPreviousPage: () => void,
     goNextPage: () => void,
     currentPage: number,
@@ -14,7 +14,7 @@ export default function Pagination({
     currentPage,
     pageSize,
     totalItems
-} : PaginationProps) {
+} : Props) {
     const showNextButton = pageSize * currentPage < totalItems
 
     return (

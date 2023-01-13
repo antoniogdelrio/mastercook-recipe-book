@@ -1,24 +1,104 @@
 {
   "recipes": [
-    { "id": 1, "title": "Temaki", "image": "temaki.jpg", "time": 123, "difficulty": "Medium" },
-    { "id": 2, "title": "Bolo de Chocolate", "image": "temaki.jpg", "time": 100, "difficulty": "Medium" },
-    { "id": 3, "title": "Frango Assado", "image": "frango-assado.webp", "time": 60, "difficulty": "Easy" },
-    { "id": 4, "title": "Hot roll", "image": "temaki.jpg", "time": 50, "difficulty": "Medium" },
-    { "id": 5, "title": "Escondidinho de carne seca", "image": "temaki.jpg", "time": 123, "difficulty": "Medium" },
-    { "id": 6, "title": "Macarrão à Bolonhesa", "image": "temaki.jpg", "time": 150, "difficulty": "Medium" },
-    { "id": 7, "title": "Iscas de Frango", "image": "temaki.jpg", "time": 10, "difficulty": "Medium" },
-    { "id": 8, "title": "Salmão assado", "image": "temaki.jpg", "time": 20, "difficulty": "Medium" },
-    { "id": 9, "title": "Risoto de Salmão", "image": "temaki.jpg", "time": 300, "difficulty": "Easy" },
-    { "id": 10, "title": "Risoto de Funghi", "image": "temaki.jpg", "time": 145, "difficulty": "Hard" },
-    { "id": 11, "title": "Hambúrguer Artesanal", "image": "temaki.jpg", "time": 123, "difficulty": "Hard" },
-    { "id": 12, "title": "Mini Churros", "image": "temaki.jpg", "time": 123, "difficulty": "Hard" },
-    { "id": 13, "title": "Torta Holandesa", "image": "temaki.jpg", "time": 120, "difficulty": "Hard" },
-    { "id": 14, "title": "Omelete Gourmet", "image": "temaki.jpg", "time": 120, "difficulty": "Hard" },
-    { "id": 15, "title": "Brigadeiro Gourmet", "image": "temaki.jpg", "time": 120, "difficulty": "Hard" },
-    { "id": 16, "title": "Doce de Abóbora", "image": "temaki.jpg", "time": 120, "difficulty": "Hard" },
-    { "id": 17, "title": "Macarrão Alho e Óleo", "image": "temaki.jpg", "time": 120, "difficulty": "Hard" },
-    { "id": 18, "title": "Beijinho", "image": "temaki.jpg", "time": 120, "difficulty": "Hard" },
-    { "id": 19, "title": "Feijoada", "image": "temaki.jpg", "time": 120, "difficulty": "Hard" },
-    { "id": 20, "title": "Pizza caseira", "image": "temaki.jpg", "time": 120, "difficulty": "Hard" }
+    {
+      "id": 1,
+      "title": "Temaki",
+      "image": "temaki.jpg",
+      "time": 123,
+      "difficulty": "Medium",
+      "serve": 5,
+      "ingredients": [
+        {
+          "description": "Alga",
+          "quantity": 5,
+          "unit": "units"
+        },
+        {
+          "description": "Salmão",
+          "quantity": 500,
+          "unit": "g"
+        },
+        {
+          "description": "Cream Cheese",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "description": "Cebolinha",
+          "quantity": 50,
+          "unit": "g"
+        }
+      ],
+      "steps": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Morbi blandit nulla a iaculis pulvinar.",
+        "Nam et nulla vitae augue volutpat mollis.",
+        "Aenean efficitur leo eu magna aliquam, vel porttitor arcu pulvinar.",
+        "Duis non velit molestie, vestibulum erat vitae, maximus lectus."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Frango Assado",
+      "image": "frango-assado.webp",
+      "time": 60,
+      "difficulty": "Easy",
+      "serve": 3,
+      "ingredients": [
+        {
+          "description": "Frango",
+          "quantity": 1,
+          "unit": "kg"
+        },
+        {
+          "description": "Manteiga",
+          "quantity": 50,
+          "unit": "g"
+        },
+        {
+          "description": "Sal",
+          "quantity": 100,
+          "unit": "g"
+        }
+      ],
+      "steps": [
+        "Donec mollis odio vitae fringilla interdum.",
+        "Nunc eu lacus finibus lectus dignissim pretium.",
+        "Quisque placerat augue quis nunc aliquam dapibus.",
+        "Maecenas faucibus turpis quis libero varius tristique.",
+        "In vel augue non turpis lacinia porttitor id a lorem."
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Bolo de Chocolate",
+      "image": "bolo-de-chocolate.jpg",
+      "time": 60,
+      "difficulty": "Easy",
+      "serve": 3,
+      "ingredients": [
+        {
+          "description": "Chocolate em pó",
+          "quantity": 500,
+          "unit": "g"
+        },
+        {
+          "description": "Ovos",
+          "quantity": 3,
+          "unit": "units"
+        },
+        {
+          "description": "Trigo",
+          "quantity": 1200,
+          "unit": "g"
+        }
+      ],
+      "steps": [
+        "Maecenas maximus sapien euismod risus ultrices, a interdum ex posuere.",
+        "Nulla eleifend quam vitae nibh egestas viverra.",
+        "Etiam ultrices sapien porttitor mi rhoncus fermentum.",
+        "Praesent sed arcu sed ex pharetra volutpat nec eget eros."
+      ]
+    }
   ]
 }

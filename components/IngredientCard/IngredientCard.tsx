@@ -1,18 +1,15 @@
+import { Ingredient } from "../../types"
 import styles from "./IngredientCard.module.scss"
-
-export interface IngredientCardSchema {
-    quantity: string,
-    description: string
-}
 
 export default function IngredientCard ({
     quantity,
-    description
-} : IngredientCardSchema) {
+    description,
+    unit
+} : Ingredient) {
     return (
         <div className={styles.card}>
             <div className={styles.quantity}>
-                {quantity}
+                {quantity} {unit}
             </div>
             <div className={styles.description}>
                 {description}

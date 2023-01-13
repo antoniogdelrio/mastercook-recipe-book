@@ -1,12 +1,12 @@
 import styles from './SkeletonCards.module.scss'
 
-interface SkeletonCardsProps {
+interface Props {
     quantity: number
 }
 
 export default function SkeletonCards ({
     quantity
-} : SkeletonCardsProps) {
+} : Props) {
     return (
         <div className={styles['skeleton-cards']}>
             {(new Array(quantity)).fill({}).map(() => (

@@ -3,16 +3,16 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import Header from "../components/Header/Header";
 import Pagination from "../components/Pagination/Pagination";
-import { RecipeCardSchema } from "../components/RecipeCard/RecipeCard";
 import RecipeList from "../components/RecipeList/RecipeList";
 import SearchBar from "../components/SearchBar/SearchBar";
 import SkeletonCards from "../components/SkeletonCards/SkeletonCards";
 import { RECIPES_URL } from "../constants/apiUrls";
 import useRecipes from "../hooks/useRecipes";
 import { getRecipes } from "../services/recipes";
+import { RecipeSummary } from "../types";
 
 interface HomeProps {
-  recipes: RecipeCardSchema[],
+  recipes: RecipeSummary[],
   totalItems: number,
   queryPage: number,
   querySearch: string

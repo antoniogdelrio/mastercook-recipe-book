@@ -1,10 +1,10 @@
 import styles from "./PreparationSection.module.scss"
 
-interface PreparationSection {
+interface Props {
     steps: string[]
 }
 
-export default function PreparationSection ({ steps } : PreparationSection) {
+export default function PreparationSection ({ steps } : Props) {
     return (
         <div className={styles['preparation-section']}>
             <h2>Preparation:</h2>

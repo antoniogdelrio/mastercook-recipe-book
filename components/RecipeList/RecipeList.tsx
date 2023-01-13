@@ -1,11 +1,12 @@
-import RecipeCard, { RecipeCardSchema } from "../RecipeCard/RecipeCard"
+import { RecipeSummary } from "../../types"
+import RecipeCard from "../RecipeCard/RecipeCard"
 import styles from "./RecipeList.module.scss"
 
-interface RecipeListSchema {
-    cards: RecipeCardSchema[]
+interface Props {
+    cards: RecipeSummary[]
 }
 
-export default function RecipeList(props: RecipeListSchema) {
+export default function RecipeList(props: Props) {
     return (
         <div className={styles['list-container']}>
             {props.cards?.map(card => (

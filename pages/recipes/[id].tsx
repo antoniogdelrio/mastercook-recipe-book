@@ -1,76 +1,37 @@
+import { GetServerSideProps } from "next";
 import IngredientCard from "../../components/IngredientCard/IngredientCard";
 import IngredientsList from "../../components/IngredientsList/IngredientsList";
 import PreparationSection from "../../components/PreparationSection/PreparationSection";
 import RecipeHead from "../../components/RecipeHead/RecipeHead";
+import { getRecipe } from "../../services/recipes";
 
-export default function RecipeDetails () {
+export default function RecipeDetails ({ recipe } : any) {
+    const { data } = recipe
     return (
         <article>
             <RecipeHead
-                difficulty="Hard"
-                time={5}
-                title="Temaki saboroso"
-                image="/temaki.jpg"
-                serveQuantity={5}
+                difficulty={data.difficulty}
+                time={data.time}
+                title={data.title}
+                image={`/${data.image}`}
+                serveQuantity={data.serve}
             />
             <IngredientsList
-                cards={[
-                    {
-                        quantity: "1 kg",
-                        description: "Ketchup"
-                    },
-                    {
-                        quantity: "1 kg",
-                        description: "Ketchup"
-                    },
-                    {
-                        quantity: "1 kg",
-                        description: "Ketchup"
-                    },
-                    {
-                        quantity: "1 kg",
-                        description: "Ketchup"
-                    },
-                    {
-                        quantity: "1 kg",
-                        description: "Ketchup"
-                    },
-                    {
-                        quantity: "1 kg",
-                        description: "Ketchup"
-                    },
-                    {
-                        quantity: "1 kg",
-                        description: "Ketchup"
-                    },
-                    {
-                        quantity: "1 kg",
-                        description: "Ketchup"
-                    },
-                    {
-                        quantity: "1 kg",
-                        description: "Ketchup"
-                    },
-                    {
-                        quantity: "1 kg",
-                        description: "Ketchup"
-                    },
-                    {
-                        quantity: "1 kg",
-                        description: "Ketchup"
-                    },
-                ]}
+                cards={data.ingredients}
             />
             <PreparationSection
-                steps={[
-                    "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum, quas autem vitae quo optio at nostrum aspernatur sed? Architecto ducimus fuga illum dolor maiores fugit dignissimos blanditiis sapiente dolores nostrum?",
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam qui eos amet in accusamus? Aut ea animi harum accusamus porro atque vel eum! Est repellat soluta numquam earum minima dicta.",
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam qui eos amet in accusamus? Aut ea animi harum accusamus porro atque vel eum! Est repellat soluta numquam earum minima dicta.",
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam qui eos amet in accusamus? Aut ea animi harum accusamus porro atque vel eum! Est repellat soluta numquam earum minima dicta.",
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam qui eos amet in accusamus? Aut ea animi harum accusamus porro atque vel eum! Est repellat soluta numquam earum minima dicta.",
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam qui eos amet in accusamus? Aut ea animi harum accusamus porro atque vel eum! Est repellat soluta numquam earum minima dicta."
-                ]}
+                steps={data.steps}
             />
         </article>
     )
+}
+
+export const getServerSideProps : GetServerSideProps = async (context) => {
+    const recipeId = context.query.id
+    const recipe = await getRecipe(recipeId)
+    return {
+      props: {
+        recipe
+      }
+    }
 }

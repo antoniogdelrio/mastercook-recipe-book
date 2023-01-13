@@ -2,13 +2,13 @@ import { useRef } from "react"
 import SearchIcon from "../icons/SearchIcon"
 import styles from "./SearchBar.module.scss"
 
-interface SearchBarSchema {
+interface Props {
     onSearch: (payload: string) => void
 }
 
 export default function SearchBar ({
     onSearch
-} : SearchBarSchema) {
+} : Props) {
     const ref = useRef<HTMLInputElement>(null)
 
     const handleSearch = () => {
