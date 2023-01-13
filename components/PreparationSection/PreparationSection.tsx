@@ -10,8 +10,8 @@ export default function PreparationSection ({ steps } : Props) {
             <h2>Preparation:</h2>
             <ol className={styles.steps}>
                 {
-                    steps.map(step => (
-                        <li>{step}</li>
+                    steps.map((step, index) => (
+                        <li key={`${index}_${step}`}>{step}</li>
                         ))
                     }
             </ol>

@@ -7,7 +7,7 @@ import PersonsIcon from "../icons/PersonsIcon";
 import PuzzleIcon from "../icons/PuzzleIcon";
 import styles from "./RecipeHead.module.scss"
 
-interface Props extends RecipeSummary {
+interface Props extends Omit<RecipeSummary, 'id'> {
     serveQuantity: number
 }
 

@@ -28,7 +28,7 @@ export default function RecipeDetails ({ recipe } : any) {
 
 export const getServerSideProps : GetServerSideProps = async (context) => {
     const recipeId = context.query.id
-    const recipe = await getRecipe(recipeId)
+    const recipe = await getRecipe(Number(recipeId))
     return {
       props: {
         recipe

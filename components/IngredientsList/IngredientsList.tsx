@@ -16,6 +16,7 @@ export default function IngredientsList ({
                 {
                     cards.map(card => (
                         <IngredientCard
+                            key={`${card.description}_${card.quantity}`}
                             description={card.description}
                             quantity={card.quantity}
                             unit={card.unit}

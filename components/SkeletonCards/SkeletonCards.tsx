@@ -9,8 +9,8 @@ export default function SkeletonCards ({
 } : Props) {
     return (
         <div className={styles['skeleton-cards']}>
-            {(new Array(quantity)).fill({}).map(() => (
-                <div className={styles.card}></div>
+            {(new Array(quantity)).fill({}).map((_, index) => (
+                <div key={`skeleton_${index}`} className={styles.card}></div>
             ))}
         </div>
     )
