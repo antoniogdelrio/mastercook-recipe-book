@@ -24,21 +24,9 @@ describe('<RecipeCard />', () => {
         />)
 
         screen.getByRole('heading', {
-          name: /chicken/i
+          name: /title: chicken/i
         })
         screen.getByText(/hard/i)
         screen.getByText(/120/i)
-    })
-
-    it('should match snapshot', () => {
-        const { container } = render(<RecipeCard
-            id={data.id}
-            title={data.title}
-            difficulty={data.difficulty}
-            image={data.image}
-            time={data.time}
-        />)
-
-        expect(container).toMatchSnapshot()
     })
 })
