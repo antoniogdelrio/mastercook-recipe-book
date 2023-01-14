@@ -24,7 +24,7 @@ describe('<RecipeCard />', () => {
         />)
 
         screen.getByRole('heading', {
-          name: /title: chicken/i
+          name: /chicken/i
         })
         screen.getByText(/hard/i)
         screen.getByText(/120/i)
