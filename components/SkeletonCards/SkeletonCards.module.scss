@@ -17,6 +17,16 @@
         max-width: 250px;
         height: 173px;
         animation: shimmer 0.5s infinite;
+
+        span {
+            position: absolute;
+            top: auto;
+            overflow: hidden;
+            clip: rect(1px, 1px, 1px, 1px);
+            width: 1px;
+            height: 1px;
+            white-space: nowrap;
+        }
     }
 }
 
