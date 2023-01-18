@@ -1,11 +1,15 @@
 import { GetServerSideProps } from "next";
-import IngredientCard from "../../components/IngredientCard/IngredientCard";
 import IngredientsList from "../../components/IngredientsList/IngredientsList";
 import PreparationSection from "../../components/PreparationSection/PreparationSection";
 import RecipeHead from "../../components/RecipeHead/RecipeHead";
 import { getRecipe } from "../../services/recipes";
+import { Recipe } from "../../types";
 
-export default function RecipeDetails ({ recipe } : any) {
+interface Props {
+    data: Recipe
+}
+
+export default function RecipeDetails (recipe : Props) {
     const { data } = recipe
     return (
         <article>
