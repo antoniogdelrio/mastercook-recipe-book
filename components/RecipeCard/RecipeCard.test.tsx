@@ -1,16 +1,14 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import RecipeCard from './RecipeCard'
-import { Recipe } from '../../types'
+import { RecipeSummary } from '../../types'
 
 describe('<RecipeCard />', () => {
-    const data : Recipe = {
+    const data : RecipeSummary = {
         id: 1,
         title: "Chicken",
         difficulty: "Hard",
         image: "/image.jpg",
-        ingredients: [],
-        steps: [],
         time: 120,
     }
 
