@@ -1,6 +1,6 @@
 import { QueryKey, useQuery } from "@tanstack/react-query"
 import { useState } from "react"
-import useUrlQuery from "./useQuery"
+import useUrlQuery from "./useUrlQuery"
 
 interface useFetchDataTypes<T> {
     queryFn: ({ queryKey : [] }) => any,
