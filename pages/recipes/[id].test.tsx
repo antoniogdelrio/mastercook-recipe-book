@@ -1,8 +1,8 @@
-import { screen, render } from "@testing-library/react";
 import { GetServerSidePropsContext, PreviewData } from "next";
 import { ParsedUrlQuery } from "querystring";
 import { RecipeMock } from "../../test-tools/mocks/Recipes";
 import { server } from "../../test-tools/msw-handlers";
+import { render, screen } from "../../test-tools/test-utils";
 import { Recipe } from "../../types";
 import RecipeDetails, { getServerSideProps } from "./[id]";
 
@@ -39,7 +39,7 @@ describe('Page Recipe Details (/recipes/[id])', () => {
     describe('<RecipeDetails />', () => {
         it ('should render the page Recipe Details successfully', () => {
             render(<RecipeDetails
-                data={data}
+                recipe={data}
             />)
     
             screen.getByRole('link', {
@@ -74,9 +74,7 @@ describe('Page Recipe Details (/recipes/[id])', () => {
 
             expect(result).toMatchObject({
                 props: {
-                    recipe: {
-                        data: RecipeMock
-                    }
+                    recipe: RecipeMock
                 }
             })
         })
