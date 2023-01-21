@@ -13,7 +13,6 @@ import { RecipeSummary } from "../types";
 
 interface HomeProps {
   recipes: RecipeSummary[],
-  totalItems: number,
   queryPage: number,
   querySearch: string
 }
@@ -27,7 +26,7 @@ export default function Home({ recipes, queryPage, querySearch } : HomeProps) {
     onChangePage,
     onSearch
   } = useRecipes(Number(queryPage), querySearch, {
-    data: recipes, totalItems: 50
+    data: recipes, totalItems: recipes.length
   })
 
   const cards = paginatedRecipes?.data || []
