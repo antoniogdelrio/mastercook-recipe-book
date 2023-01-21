@@ -6,25 +6,24 @@ import { getRecipe } from "../../services/recipes";
 import { Recipe } from "../../types";
 
 interface Props {
-    data: Recipe
+    recipe: Recipe
 }
 
-export default function RecipeDetails (recipe : Props) {
-    const { data } = recipe
+export default function RecipeDetails ({ recipe } : Props) {
     return (
         <article>
             <RecipeHead
-                difficulty={data.difficulty}
-                time={data.time}
-                title={data.title}
-                image={`/${data.image}`}
-                serveQuantity={data.serve}
+                difficulty={recipe.difficulty}
+                time={recipe.time}
+                title={recipe.title}
+                image={`/${recipe.image}`}
+                serveQuantity={recipe.serve}
             />
             <IngredientsList
-                cards={data.ingredients}
+                cards={recipe.ingredients}
             />
             <PreparationSection
-                steps={data.steps}
+                steps={recipe.steps}
             />
         </article>
     )
@@ -35,7 +34,7 @@ export const getServerSideProps : GetServerSideProps = async (context) => {
     const recipe = await getRecipe(Number(recipeId))
     return {
       props: {
-        recipe
+        recipe: recipe?.data
       }
     }
 }
