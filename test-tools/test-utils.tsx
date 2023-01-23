@@ -6,11 +6,22 @@ import {
 } from '@tanstack/react-query'
 import Layout from '../components/Layout/Layout'
 
-const queryClient = new QueryClient()
+const queryClientMock = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      staleTime: 0
+    }
+  },
+})
+
+beforeEach(() => {
+  queryClientMock.clear();
+});
 
 const AllTheProviders = ({ children } : React.PropsWithChildren) => {
     return (
-        <QueryClientProvider client={queryClient}>
+        <QueryClientProvider client={queryClientMock}>
             <Layout>
                 {children}
             </Layout>

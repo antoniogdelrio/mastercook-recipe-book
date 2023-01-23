@@ -1,4 +1,4 @@
-import { Recipe } from "../../types";
+import { Recipe, RecipeSummary } from "../../types";
 
 export const RecipeMock : Recipe = {
     id: 1,
@@ -24,3 +24,20 @@ export const RecipeMock : Recipe = {
     ],
     serve: 6
 }
+
+export const RecipesMock : RecipeSummary[] = [
+    {
+        id: 1,
+        title: "Chicken",
+        image: "chicken.jpg",
+        time: 65,
+        difficulty: "Medium",
+    },
+    {
+        id: 2,
+        image: "chocolate-cake.jpg",
+        title: "Chocolate Cake",
+        time: 75,
+        difficulty: "Medium"
+    }
+]
