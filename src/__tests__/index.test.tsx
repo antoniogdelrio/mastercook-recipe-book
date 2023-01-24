@@ -1,4 +1,4 @@
-import Home, { getServerSideProps } from ".";
+import Home, { getServerSideProps } from "../../pages/index";
 import "@testing-library/jest-dom"
 import { fireEvent, render, screen, waitFor, waitForElementToBeRemoved } from "../test-tools/test-utils";
 import userEvent from "@testing-library/user-event";
