@@ -12,12 +12,17 @@ const customJestConfig = {
   collectCoverage: true,
   collectCoverageFrom: [
     '**/*.{js,jsx,ts,tsx}',
+    '**/*.{js,jsx,ts,tsx}',
     '!**/*.d.ts',
     '!**/node_modules/**',
     '!<rootDir>/out/**',
     '!<rootDir>/.next/**',
-    '!<rootDir>/*.config.js',
+    '!<rootDir>/*.config.ts',
+    '!*.config.js',
     '!<rootDir>/coverage/**',
+    '!<rootDir>/src/constants/**',
+    '!<rootDir>/pages/_app.tsx',
+    '!<rootDir>/pages/_document.tsx'
   ],
   coveragePathIgnorePatterns: [
     "node_modules",
