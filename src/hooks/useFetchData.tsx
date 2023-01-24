@@ -12,9 +12,9 @@ interface useFetchDataTypes<T> {
 
 export default function useFetchData <T> ({ queryFn, key, page, search, initialData } : useFetchDataTypes<T>) {
     const [currentPage, setCurrentPage] = useState(page)
-    const [, setUrlPage] = useUrlQuery('page')
+    const [setUrlPage] = useUrlQuery('page')
     const [searchQuery, setSearchQuery] = useState(search)
-    const [, setUrlSearch] = useUrlQuery('search')
+    const [setUrlSearch] = useUrlQuery('search')
     const [initialKey, ] = useState(`[${key}, ${currentPage}, ${searchQuery}]`)
 
     const { data, isLoading } = useQuery({
