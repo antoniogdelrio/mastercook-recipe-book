@@ -11,7 +11,8 @@ export interface Recipe {
     time: number,
     difficulty: string,
     ingredients: Ingredient[],
-    steps: string[]
+    steps: string[],
+    serve: number
 }
 
-export interface RecipeSummary extends Omit<Recipe, 'ingredients' | 'steps'> {}
+export interface RecipeSummary extends Omit<Recipe, 'ingredients' | 'steps' | 'serve'> {}

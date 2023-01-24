@@ -1,6 +1,6 @@
 import { QueryKey, useQuery } from "@tanstack/react-query"
 import { useState } from "react"
-import useUrlQuery from "./useQuery"
+import useUrlQuery from "./useUrlQuery"
 
 interface useFetchDataTypes<T> {
     queryFn: ({ queryKey : [] }) => any,
@@ -14,12 +14,14 @@ export default function useFetchData <T> ({ queryFn, key, page, search, initialD
     const [currentPage, setCurrentPage] = useState(page)
     const [, setUrlPage] = useUrlQuery('page')
     const [searchQuery, setSearchQuery] = useState(search)
-    const [, setUrlSearch] = useUrlQuery('q')
+    const [, setUrlSearch] = useUrlQuery('search')
+    const [initialKey, ] = useState(`[${key}, ${currentPage}, ${searchQuery}]`)
 
     const { data, isLoading } = useQuery({
         queryKey: [key, currentPage, searchQuery],
         queryFn,
-        initialData
+        initialData: `[${key}, ${currentPage}, ${searchQuery}]` === initialKey ? initialData : undefined,
+        staleTime: 60 * 1000
     })
 
     const onChangePage = (delta : number) => () => {

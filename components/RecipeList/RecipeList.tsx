@@ -9,16 +9,19 @@ interface Props {
 export default function RecipeList(props: Props) {
     return (
         <div className={styles['list-container']}>
-            {props.cards?.map(card => (
-                <RecipeCard
-                    key={`recipe_${card.id}`}
-                    id={card.id}
-                    title={card.title}
-                    image={`/${card.image}`}
-                    difficulty={card.difficulty}
-                    time={card.time}
-                />
-            ))}
+            {props.cards.length ?
+                props.cards?.map(card => (
+                    <RecipeCard
+                        key={`recipe_${card.id}`}
+                        id={card.id}
+                        title={card.title}
+                        image={`/${card.image}`}
+                        difficulty={card.difficulty}
+                        time={card.time}
+                    />
+                )):
+                <p>Not recipes to show</p>
+            }
         </div>
     )
 }

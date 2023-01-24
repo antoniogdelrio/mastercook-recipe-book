@@ -1,4 +1,5 @@
 import { RECIPES_URL } from "../constants/apiUrls"
+import 'isomorphic-fetch'
 
 export async function getRecipes (page : number, q : string) {
     const res = await fetch(`${RECIPES_URL}?_page=${page}&_limit=9${q && `&q=${q}`}`)

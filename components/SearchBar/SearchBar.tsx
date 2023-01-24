@@ -21,8 +21,10 @@ export default function SearchBar ({
             <input
                 ref={ref}
                 type="text"
+                alt="Search recipes"
             />
-            <button onClick={handleSearch}>Search</button>
+            <button onClick={handleSearch}
+            >Search</button>
         </div>
     )
 }
