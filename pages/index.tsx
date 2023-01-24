@@ -12,12 +12,15 @@ import { getRecipes } from "../services/recipes";
 import { RecipeSummary } from "../types";
 
 interface HomeProps {
-  recipes: RecipeSummary[],
+  serverData: {
+    data: RecipeSummary[],
+    totalItems: number
+  },
   queryPage: number,
   querySearch: string
 }
 
-export default function Home({ recipes, queryPage, querySearch } : HomeProps) {
+export default function Home({ serverData, queryPage, querySearch } : HomeProps) {
 
   const {
     data: paginatedRecipes,
@@ -26,7 +29,7 @@ export default function Home({ recipes, queryPage, querySearch } : HomeProps) {
     onChangePage,
     onSearch
   } = useRecipes(Number(queryPage), querySearch, {
-    data: recipes, totalItems: recipes.length
+    data: serverData.data, totalItems: serverData.totalItems
   })
 
   const cards = paginatedRecipes?.data || []
@@ -56,11 +59,11 @@ export default function Home({ recipes, queryPage, querySearch } : HomeProps) {
 export const getServerSideProps : GetServerSideProps = async (context) =>  {
   const queryPage = Number(context.query.page) || 1
   const querySearch = (context.query.search || '') as string
-  const { data } = await getRecipes(queryPage, querySearch)
-  const recipes = data
+  const serverData = await getRecipes(queryPage, querySearch)
+  
   return {
     props: {
-      recipes,
+      serverData,
       queryPage,
       querySearch
     }
