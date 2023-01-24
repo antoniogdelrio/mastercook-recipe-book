@@ -1,9 +1,9 @@
 import { GetServerSideProps } from "next";
-import IngredientsList from "../../components/IngredientsList/IngredientsList";
-import PreparationSection from "../../components/PreparationSection/PreparationSection";
-import RecipeHead from "../../components/RecipeHead/RecipeHead";
-import { getRecipe } from "../../services/recipes";
-import { Recipe } from "../../types";
+import IngredientsList from "../../src/components/IngredientsList/IngredientsList";
+import PreparationSection from "../../src/components/PreparationSection/PreparationSection";
+import RecipeHead from "../../src/components/RecipeHead/RecipeHead";
+import { getRecipe } from "../../src/services/recipes";
+import { Recipe } from "../../src/types";
 
 interface Props {
     recipe: Recipe

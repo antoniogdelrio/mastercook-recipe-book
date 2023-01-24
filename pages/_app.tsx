@@ -1,6 +1,6 @@
-import '../styles/index.scss'
+import '../src/styles/index.scss'
 import type { AppProps } from 'next/app'
-import Layout from '../components/Layout/Layout'
+import Layout from '../src/components/Layout/Layout'
 import {
   QueryClient,
   QueryClientProvider

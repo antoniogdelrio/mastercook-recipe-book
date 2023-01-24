@@ -1,10 +1,10 @@
 import { GetServerSidePropsContext, PreviewData } from "next";
 import { ParsedUrlQuery } from "querystring";
-import { RecipeMock } from "../../test-tools/mocks/Recipes";
-import { server } from "../../test-tools/msw-handlers";
-import { render, screen } from "../../test-tools/test-utils";
-import { Recipe } from "../../types";
-import RecipeDetails, { getServerSideProps } from "./[id]";
+import { RecipeMock } from "../../src/test-tools/mocks/Recipes";
+import { server } from "../../src/test-tools/msw-handlers";
+import { render, screen } from "../../src/test-tools/test-utils";
+import { Recipe } from "../../src/types";
+import RecipeDetails, { getServerSideProps } from "../../pages/recipes/[id]";
 
 beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())

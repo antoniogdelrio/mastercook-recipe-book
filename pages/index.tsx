@@ -1,15 +1,15 @@
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import Header from "../components/Header/Header";
-import Pagination from "../components/Pagination/Pagination";
-import RecipeList from "../components/RecipeList/RecipeList";
-import SearchBar from "../components/SearchBar/SearchBar";
-import SkeletonCards from "../components/SkeletonCards/SkeletonCards";
-import { RECIPES_URL } from "../constants/apiUrls";
-import useRecipes from "../hooks/useRecipes";
-import { getRecipes } from "../services/recipes";
-import { RecipeSummary } from "../types";
+import Header from "../src/components/Header/Header";
+import Pagination from "../src/components/Pagination/Pagination";
+import RecipeList from "../src/components/RecipeList/RecipeList";
+import SearchBar from "../src/components/SearchBar/SearchBar";
+import SkeletonCards from "../src/components/SkeletonCards/SkeletonCards";
+import { RECIPES_URL } from "../src/constants/apiUrls";
+import useRecipes from "../src/hooks/useRecipes";
+import { getRecipes } from "../src/services/recipes";
+import { RecipeSummary } from "../src/types";
 
 interface HomeProps {
   serverData: {
