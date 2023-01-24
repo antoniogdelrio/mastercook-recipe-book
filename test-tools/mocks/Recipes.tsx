@@ -1,6 +1,6 @@
 import { Recipe, RecipeSummary } from "../../types";
 
-export const RecipeMock : Recipe = {
+export const RecipeMock: Recipe = {
     id: 1,
     title: "Chicken",
     image: "chicken.jpg",
@@ -25,19 +25,86 @@ export const RecipeMock : Recipe = {
     serve: 6
 }
 
-export const RecipesMock : RecipeSummary[] = [
-    {
-        id: 1,
-        title: "Chicken",
-        image: "chicken.jpg",
-        time: 65,
-        difficulty: "Medium",
-    },
-    {
-        id: 2,
-        image: "chocolate-cake.jpg",
-        title: "Chocolate Cake",
-        time: 75,
-        difficulty: "Medium"
-    }
-]
+export const RecipesMock = {
+    page1: [
+        {
+            id: 1,
+            title: "Chicken",
+            image: "chicken.jpg",
+            time: 65,
+            difficulty: "Medium",
+        },
+        {
+            id: 2,
+            title: "Chocolate Cake",
+            image: "photo.jpg",
+            time: 75,
+            difficulty: "Medium"
+        },
+        {
+            id: 3,
+            title: "Food 3",
+            image: "photo.jpg",
+            time: 65,
+            difficulty: "Medium",
+        },
+        {
+            id: 4,
+            title: "Food 4",
+            image: "photo.jpg",
+            time: 75,
+            difficulty: "Medium"
+        },
+        {
+            id: 5,
+            title: "Food 5",
+            image: "photo.jpg",
+            time: 65,
+            difficulty: "Medium",
+        },
+        {
+            id: 6,
+            title: "Food 6",
+            image: "photo.jpg",
+            time: 75,
+            difficulty: "Medium"
+        },
+        {
+            id: 7,
+            title: "Food 7",
+            image: "photo.jpg",
+            time: 65,
+            difficulty: "Medium",
+        },
+        {
+            id: 8,
+            title: "Food 8",
+            image: "photo.jpg",
+            time: 75,
+            difficulty: "Medium"
+        },
+        {
+            id: 9,
+            title: "Food 9",
+            image: "photo.jpg",
+            time: 65,
+            difficulty: "Medium",
+        },
+    ],
+    page2: [
+        {
+            id: 10,
+            title: "Food 10",
+            image: "photo.jpg",
+            time: 75,
+            difficulty: "Medium"
+        },
+        {
+            id: 11,
+            title: "Apple pie",
+            image: "apple-pie.jpg",
+            time: 75,
+            difficulty: "Easy"
+        },
+    ]
+}

@@ -1,8 +1,11 @@
-import Home from ".";
+import Home, { getServerSideProps } from ".";
 import "@testing-library/jest-dom"
 import { fireEvent, render, screen, waitFor, waitForElementToBeRemoved } from "../test-tools/test-utils";
 import userEvent from "@testing-library/user-event";
 import { server } from "../test-tools/msw-handlers";
+import { GetServerSidePropsContext, PreviewData } from "next";
+import { ParsedUrlQuery } from "querystring";
+import { RecipesMock } from "../test-tools/mocks/Recipes";
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockImplementation(() => ({
@@ -16,31 +19,21 @@ afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
 describe('Page Home (/)', () => {
+    const totalItems = RecipesMock.page1.length + RecipesMock.page2.length
+
     describe('<Home />', () => {
         const data = {
-            recipes: [
-                {
-                    id: 1,
-                    image: "chicken.jpg",
-                    title: "Chicken",
-                    time: 60,
-                    difficulty: "Easy"
-                },
-                {
-                    id: 2,
-                    image: "chocolate-cake.jpg",
-                    title: "Chocolate Cake",
-                    time: 75,
-                    difficulty: "Medium"
-                }
-            ],
+            serverData: {
+              data: RecipesMock.page1,
+              totalItems: totalItems
+            },
             queryPage: 1,
             querySearch: ""
         }
 
         it('should render the Home page successfully', () => {
             render(<Home
-                recipes={data.recipes}
+                serverData={data.serverData}
                 queryPage={data.queryPage}
                 querySearch={data.querySearch}
             />)
@@ -62,7 +55,10 @@ describe('Page Home (/)', () => {
 
         it('should not render any cards when not have data', () => {
             render(<Home
-              recipes={[]}
+              serverData={{
+                data: [],
+                totalItems: 0
+              }}
               queryPage={data.queryPage}
               querySearch={data.querySearch}
             />)
@@ -72,7 +68,7 @@ describe('Page Home (/)', () => {
 
         it('should return searched recipe', async () => {
           render(<Home
-            recipes={data.recipes}
+            serverData={data.serverData}
             queryPage={data.queryPage}
             querySearch={data.querySearch}
           />)
@@ -100,5 +96,62 @@ describe('Page Home (/)', () => {
           })).not.toBeInTheDocument()
         })
 
+        it('should change between paginated data successfully', async () => {
+          render(<Home
+            serverData={data.serverData}
+            queryPage={data.queryPage}
+            querySearch={data.querySearch}
+          />)
+
+          const nextPageButton = screen.getByRole('button', {
+            name: /next page >/i
+          })
+
+          userEvent.click(nextPageButton)
+
+          await waitFor(() => {
+            screen.getByRole('progressbar')
+          })
+
+          await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
+
+          await waitFor(() => {
+            expect(screen.queryByRole('heading', {
+              name: /apple pie/i
+            })).toBeInTheDocument()
+          })
+
+          expect(screen.queryByRole('heading', {
+            name: /chicken/i
+          })).not.toBeInTheDocument()
+          expect(screen.queryByRole('heading', {
+            name: /chocolate cake/i
+          })).not.toBeInTheDocument()
+        })
+
     })
+
+    describe('getServerSideProps', () => {
+      const data = {
+          query: {
+              page: 1,
+              search: ""
+          }
+      }
+
+      it ('getServerSideProps', async () => {
+          const result = await getServerSideProps(data as unknown as GetServerSidePropsContext<ParsedUrlQuery, PreviewData>)
+
+          expect(result).toMatchObject({
+              props: {
+                  serverData: {
+                    data: RecipesMock.page1,
+                    totalItems: `${totalItems}`
+                  },
+                  queryPage: 1,
+                  querySearch: ""
+              }
+          })
+      })
+  })
 })
