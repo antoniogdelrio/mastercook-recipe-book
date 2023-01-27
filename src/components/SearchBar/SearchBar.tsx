@@ -22,6 +22,7 @@ export default function SearchBar ({
                 ref={ref}
                 type="text"
                 alt="Search recipes"
+                aria-label="Search recipes"
             />
             <button onClick={handleSearch}
             >Search</button>
