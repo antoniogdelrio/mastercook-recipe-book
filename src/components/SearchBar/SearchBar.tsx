@@ -1,4 +1,5 @@
 import { useRef } from "react"
+import Button from "../Button/Button"
 import SearchIcon from "../icons/SearchIcon"
 import TextInput from "../TextInput/TextInput"
 import styles from "./SearchBar.module.scss"
@@ -24,8 +25,7 @@ export default function SearchBar ({
                 alt="Search recipes"
                 ariaLabel="Search recipes"
             />
-            <button onClick={handleSearch}
-            >Search</button>
+            <Button onClick={handleSearch}>Search</Button>
         </div>
     )
 }

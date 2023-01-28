@@ -1,0 +1,16 @@
+@use "../../styles/variables.module.scss" as variables;
+
+.button {
+    border: 0;
+    align-self: stretch;
+    padding: 0 1rem;
+    background-color: variables.$red;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+
+    &:hover {
+        background-color: variables.$redHover;
+    }
+}
