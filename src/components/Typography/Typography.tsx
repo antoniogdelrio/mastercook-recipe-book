@@ -1,5 +1,5 @@
 interface Props {
-    type?: "h1" | "h2" | "h3" | "p" | "span"
+    type?: "h1" | "h2" | "h3" | "h4" | "p" | "span"
     value: string,
     customClasses?: string,
     isBold?: boolean,
