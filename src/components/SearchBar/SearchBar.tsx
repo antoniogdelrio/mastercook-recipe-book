@@ -1,5 +1,6 @@
 import { useRef } from "react"
 import SearchIcon from "../icons/SearchIcon"
+import TextInput from "../TextInput/TextInput"
 import styles from "./SearchBar.module.scss"
 
 interface Props {
@@ -18,11 +19,10 @@ export default function SearchBar ({
     return (
         <div className={styles.search}>
             <SearchIcon />
-            <input
+            <TextInput
                 ref={ref}
-                type="text"
                 alt="Search recipes"
-                aria-label="Search recipes"
+                ariaLabel="Search recipes"
             />
             <button onClick={handleSearch}
             >Search</button>
