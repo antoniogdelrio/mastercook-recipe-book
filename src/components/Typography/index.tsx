@@ -1,12 +1,12 @@
 interface Props {
-    type: "h1" | "h2" | "h3" | "p" | "span"
+    type?: "h1" | "h2" | "h3" | "p" | "span"
     value: string,
     customClasses?: string,
     isBold?: boolean,
 }
 
 function Typography ({
-    type,
+    type = 'p',
     value,
     customClasses,
     isBold = false
@@ -14,7 +14,7 @@ function Typography ({
     const CustomTypography = type
 
     return (
-        isBold ? (<b><CustomTypography className={customClasses}>{value}</CustomTypography></b>) : 
+        isBold ? (<b className={customClasses}><CustomTypography>{value}</CustomTypography></b>) : 
         (<CustomTypography className={customClasses}>{value}</CustomTypography>)
     )
 }
