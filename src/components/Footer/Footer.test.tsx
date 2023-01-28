@@ -7,7 +7,10 @@ describe('<Footer />', () => {
         render(<Footer />)
         
         screen.getByRole('heading', {
-          name: /created by antoniogdelrio/i
+          name: /created by/i
+        }) 
+        screen.getByRole('link', {
+          name: /antoniogdelrio/i
         }) 
     })
 })
