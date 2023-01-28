@@ -1,7 +1,7 @@
 import { useRef } from "react"
-import Button from "../Button/Button"
-import SearchIcon from "../icons/SearchIcon"
-import TextInput from "../TextInput/TextInput"
+import Button from "../../atoms/Button/Button"
+import SearchIcon from "../../icons/SearchIcon"
+import TextInput from "../../atoms/TextInput/TextInput"
 import styles from "./SearchBar.module.scss"
 
 interface Props {

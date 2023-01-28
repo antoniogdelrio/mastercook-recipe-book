@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react"
 import '@testing-library/jest-dom'
 import IngredientsList from './IngredientsList'
-import { Ingredient } from "../../types"
+import { Ingredient } from "../../../types"
 
 describe('<IngredientsList />', () => {
     const data : Ingredient[] = [

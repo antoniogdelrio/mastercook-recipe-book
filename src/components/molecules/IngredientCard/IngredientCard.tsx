@@ -1,5 +1,5 @@
-import { Ingredient } from "../../types"
-import Typography from "../Typography/Typography"
+import { Ingredient } from "../../../types"
+import Typography from "../../atoms/Typography/Typography"
 import styles from "./IngredientCard.module.scss"
 
 export default function IngredientCard ({

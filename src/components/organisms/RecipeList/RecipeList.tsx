@@ -1,6 +1,6 @@
-import { RecipeSummary } from "../../types"
-import RecipeCard from "../RecipeCard/RecipeCard"
-import Typography from "../Typography/Typography"
+import { RecipeSummary } from "../../../types"
+import RecipeCard from "../../molecules/RecipeCard/RecipeCard"
+import Typography from "../../atoms/Typography/Typography"
 import styles from "./RecipeList.module.scss"
 
 interface Props {

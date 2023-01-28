@@ -1,4 +1,4 @@
-import Typography from "../Typography/Typography"
+import Typography from "../../atoms/Typography/Typography"
 import styles from "./PreparationSection.module.scss"
 
 interface Props {

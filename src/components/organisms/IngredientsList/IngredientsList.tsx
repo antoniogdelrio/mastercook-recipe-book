@@ -1,6 +1,6 @@
-import { Ingredient } from "../../types"
-import IngredientCard from "../IngredientCard/IngredientCard"
-import Typography from "../Typography/Typography"
+import { Ingredient } from "../../../types"
+import IngredientCard from "../../molecules/IngredientCard/IngredientCard"
+import Typography from "../../atoms/Typography/Typography"
 import styles from "./IngredientsList.module.scss"
 
 interface Props {
