@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BLUR_DATA_URL } from "../../constants/general";
 import { RecipeSummary } from "../../types";
-import Typography from "../Typography";
+import Typography from "../Typography/Typography";
 import styles from "./RecipeCard.module.scss"
 
 type Difficulty = "Hard" | "Medium" | "Easy"

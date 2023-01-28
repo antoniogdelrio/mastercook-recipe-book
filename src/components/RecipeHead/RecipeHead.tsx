@@ -5,7 +5,7 @@ import { RecipeSummary } from "../../types";
 import ClockIcon from "../icons/ClockIcon";
 import PersonsIcon from "../icons/PersonsIcon";
 import PuzzleIcon from "../icons/PuzzleIcon";
-import Typography from "../Typography";
+import Typography from "../Typography/Typography";
 import styles from "./RecipeHead.module.scss"
 
 interface Props extends Omit<RecipeSummary, 'id'> {

@@ -1,3 +1,4 @@
+import Typography from "../Typography/Typography"
 import styles from "./Pagination.module.scss"
 
 interface Props {
@@ -19,8 +20,8 @@ export default function Pagination({
 
     return (
         <div className={styles.pagination}>
-            { currentPage > 1 && <button onClick={goPreviousPage}>&lt; Previous Page</button> }
-            { showNextButton && <button onClick={goNextPage}>Next Page &gt;</button>}
+            { currentPage > 1 && <button onClick={goPreviousPage}><Typography value="&lt; Previous Page" /></button> }
+            { showNextButton && <button onClick={goNextPage}><Typography value="Next Page &gt;" /></button>}
         </div>
     )
 }

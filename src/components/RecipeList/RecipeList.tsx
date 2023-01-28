@@ -1,5 +1,6 @@
 import { RecipeSummary } from "../../types"
 import RecipeCard from "../RecipeCard/RecipeCard"
+import Typography from "../Typography/Typography"
 import styles from "./RecipeList.module.scss"
 
 interface Props {
@@ -20,7 +21,7 @@ export default function RecipeList(props: Props) {
                         time={card.time}
                     />
                 )):
-                <p>Not recipes to show</p>
+                <Typography value="Not recipes to show" />
             }
         </div>
     )

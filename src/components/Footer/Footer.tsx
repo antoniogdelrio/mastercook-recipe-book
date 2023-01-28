@@ -1,9 +1,12 @@
+import Link from "next/link"
+import Typography from "../Typography/Typography"
 import styles from "./Footer.module.scss"
 
 export default function Footer () {
     return (
         <footer className={styles.footer}>
-            <h4>Created by <a rel="noreferrer" href="https://github.com/antoniogdelrio/" target="_blank">antoniogdelrio</a></h4>
+            <Typography value="Created by" type="h4" customClasses={styles['footer-text']} />&nbsp;
+            <Link href="https://github.com/antoniogdelrio/" rel="noreferrer" target="_blank">antoniogdelrio</Link>
         </footer>
     )
 }

@@ -1,5 +1,6 @@
 import { Ingredient } from "../../types"
 import IngredientCard from "../IngredientCard/IngredientCard"
+import Typography from "../Typography/Typography"
 import styles from "./IngredientsList.module.scss"
 
 interface Props {
@@ -11,7 +12,7 @@ export default function IngredientsList ({
 } : Props) {
     return (
         <div className={styles.ingredients}>
-            <h2>Ingredients:</h2>
+            <Typography value="Ingredients:" type="h2" />
             <div className={styles['list-container']}>
                 {
                     cards.map(card => (
