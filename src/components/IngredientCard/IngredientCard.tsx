@@ -1,4 +1,5 @@
 import { Ingredient } from "../../types"
+import Typography from "../Typography"
 import styles from "./IngredientCard.module.scss"
 
 export default function IngredientCard ({
@@ -9,10 +10,10 @@ export default function IngredientCard ({
     return (
         <div className={styles.card}>
             <div className={styles.quantity}>
-                {quantity} {unit}
+                <Typography value={`${quantity} ${unit}`} isBold={true} />
             </div>
             <div className={styles.description}>
-                {description}
+                <Typography value={description} />
             </div>
         </div>
     )

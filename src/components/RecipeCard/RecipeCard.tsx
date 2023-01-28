@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BLUR_DATA_URL } from "../../constants/general";
 import { RecipeSummary } from "../../types";
+import Typography from "../Typography";
 import styles from "./RecipeCard.module.scss"
 
 type Difficulty = "Hard" | "Medium" | "Easy"
@@ -22,9 +23,15 @@ export default function RecipeCard (props: RecipeSummary) {
                 placeholder="blur"
             />
             <div className={styles.info}>
-                <h3>{props.title}</h3>
-                <p><b>Difficulty:</b> {props.difficulty}</p>
-                <p><b>Time:</b> {props.time} minutes</p>
+                <Typography value={props.title} type="h3" customClasses={styles['info__title']} />
+                <div className={styles['info__row']}>
+                    <Typography value="Difficulty:" isBold={true} />&nbsp;
+                    <Typography value={props.difficulty} />
+                </div>
+                <div className={styles['info__row']}>
+                    <Typography value="Time:" isBold={true} />&nbsp;
+                    <Typography value={`${props.time} minutes`} />
+                </div>
             </div>
         </Link>
     )

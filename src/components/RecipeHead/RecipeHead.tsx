@@ -5,6 +5,7 @@ import { RecipeSummary } from "../../types";
 import ClockIcon from "../icons/ClockIcon";
 import PersonsIcon from "../icons/PersonsIcon";
 import PuzzleIcon from "../icons/PuzzleIcon";
+import Typography from "../Typography";
 import styles from "./RecipeHead.module.scss"
 
 interface Props extends Omit<RecipeSummary, 'id'> {
@@ -23,19 +24,19 @@ export default function RecipeHead (props : Props) {
                 blurDataURL={BLUR_DATA_URL}
                 placeholder="blur"
             />
-            <h1>{props.title}</h1>
+            <Typography value={props.title} type="h1" />
             <div className={styles.details}>
                 <div className={styles['details__item']}>
                     <ClockIcon />
-                    <p>{props.time} minutes</p>
+                    <Typography value={`${props.time} minutes`} />
                 </div>
                 <div className={styles['details__item']}>
                     <PuzzleIcon />
-                    <p>{props.difficulty}</p>
+                    <Typography value={props.difficulty} />
                 </div>
                 <div className={styles['details__item']}>
                     <PersonsIcon />
-                    <p>Serves {props.serveQuantity} people</p>
+                    <Typography value={`Serves ${props.serveQuantity} people`} />
                 </div>
             </div>
         </div>
