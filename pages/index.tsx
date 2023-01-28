@@ -5,7 +5,7 @@ import Header from "../src/components/organisms/Header/Header";
 import Pagination from "../src/components/molecules/Pagination/Pagination";
 import RecipeList from "../src/components/organisms/RecipeList/RecipeList";
 import SearchBar from "../src/components/molecules/SearchBar/SearchBar";
-import SkeletonCards from "../src/components/SkeletonCards/SkeletonCards";
+import SkeletonCards from "../src/components/organisms/SkeletonCards/SkeletonCards";
 import { RECIPES_URL } from "../src/constants/apiUrls";
 import useRecipes from "../src/hooks/useRecipes";
 import { getRecipes } from "../src/services/recipes";
