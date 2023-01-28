@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import Footer from "../Footer/Footer";
+import Footer from "../organisms/Footer/Footer";
 import styles from "./Layout.module.scss"
 
 interface Props {

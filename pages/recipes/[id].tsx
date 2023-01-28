@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next";
-import IngredientsList from "../../src/components/IngredientsList/IngredientsList";
-import PreparationSection from "../../src/components/PreparationSection/PreparationSection";
-import RecipeHead from "../../src/components/RecipeHead/RecipeHead";
+import IngredientsList from "../../src/components/organisms/IngredientsList/IngredientsList";
+import PreparationSection from "../../src/components/organisms/PreparationSection/PreparationSection";
+import RecipeHead from "../../src/components/organisms/RecipeHead/RecipeHead";
 import { getRecipe } from "../../src/services/recipes";
 import { Recipe } from "../../src/types";
 

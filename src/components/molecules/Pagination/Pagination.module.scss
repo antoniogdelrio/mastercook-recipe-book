@@ -1,0 +1,16 @@
+@use '../../../styles/variables.module.scss' as variables;
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+    margin-top: 4rem;
+
+    button {
+        border: 0;
+        background-color: transparent;
+        text-decoration: underline;
+        color: variables.$red;
+        cursor: pointer;
+    }
+}
