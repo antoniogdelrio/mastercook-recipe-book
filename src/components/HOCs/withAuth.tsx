@@ -1,17 +1,17 @@
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
-import useLocalStorage from '../../hooks/useLocalStorage'
+import { useContext, useEffect } from 'react'
+import { AuthContext } from '../../contexts/AuthContext'
 
 interface Props {}
 
 export default function withAuth <P extends Props> (Component: NextPage<P>) {
     return function AuthWrapper (props: P) {
+        const { isAuthenticated } = useContext(AuthContext)
         const router = useRouter()
-        const [token] = useLocalStorage('token')
 
         useEffect(() => {
-            if(!token) {
+            if(!isAuthenticated) {
                 router.push('/login')
             }
         }, [])

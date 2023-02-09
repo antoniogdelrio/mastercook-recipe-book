@@ -17,9 +17,8 @@ export const AuthContext = createContext<AuthContextTypes>({} as AuthContextType
 const AuthContextProvider = ({
     children
 } : React.PropsWithChildren) => {
-    const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [username, setUsername] = useState<string | null>(null)
-    const [, setToken] = useLocalStorage('token')
+    const [token, setToken, removeToken] = useLocalStorage('token')
     const router = useRouter()
 
     const login = async (email : string, password : string) => {
@@ -27,17 +26,18 @@ const AuthContextProvider = ({
             const response = await authService.login(email, password)
             setUsername(response.data.username)
             setToken(response.data.token)
-            setIsAuthenticated(true)
             router.push('/')
         } catch (err) {
-            setIsAuthenticated(false)
             setUsername(null)
         }
      }
 
     const logout = () => {
-        setIsAuthenticated(false)
+        setUsername(null)
+        removeToken()
     }
+
+    const isAuthenticated = Boolean(token)
 
     return (
         <AuthContext.Provider value={{
