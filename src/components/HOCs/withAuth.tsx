@@ -6,7 +6,7 @@ import useLocalStorage from '../../hooks/useLocalStorage'
 interface Props {}
 
 export default function withAuth <P extends Props> (Component: NextPage<P>) {
-    return (props: P) => {
+    return function AuthWrapper (props: P) {
         const router = useRouter()
         const [token] = useLocalStorage('token')
 
