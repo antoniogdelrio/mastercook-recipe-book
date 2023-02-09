@@ -6,6 +6,13 @@ import { render, screen } from "../../src/test-tools/test-utils";
 import { Recipe } from "../../src/types";
 import { RecipeDetails, getServerSideProps } from "../../pages/recipes/[id]";
 
+jest.mock('next/router', () => ({
+  useRouter: jest.fn().mockImplementation(() => ({
+    query: {},
+    push: jest.fn()
+  }))
+}))
+
 beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
