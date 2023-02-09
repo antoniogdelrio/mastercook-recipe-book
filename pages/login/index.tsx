@@ -8,14 +8,12 @@ import styles from "./Login.module.scss"
 
 export default function Login () {
     const { login } = useContext(AuthContext)
-    const router = useRouter()
 
     const emailRef = useRef<HTMLInputElement>(null)
     const passwordRef = useRef<HTMLInputElement>(null)
 
     const doLogin = () => {
-        login()
-        router.push('/')
+        login(emailRef.current?.value || '', passwordRef.current?.value || '')
     }
 
     return (

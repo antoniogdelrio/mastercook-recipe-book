@@ -10,6 +10,7 @@ import { RECIPES_URL } from "../src/constants/apiUrls";
 import useRecipes from "../src/hooks/useRecipes";
 import { getRecipes } from "../src/services/recipes";
 import { RecipeSummary } from "../src/types";
+import withAuth from "../src/components/HOCs/withAuth";
 
 interface HomeProps {
   serverData: {
@@ -20,7 +21,7 @@ interface HomeProps {
   querySearch: string
 }
 
-export default function Home({ serverData, queryPage, querySearch } : HomeProps) {
+export function Home({ serverData, queryPage, querySearch } : HomeProps) {
 
   const {
     data: paginatedRecipes,
@@ -55,6 +56,8 @@ export default function Home({ serverData, queryPage, querySearch } : HomeProps)
     </>
   )
 }
+
+export default withAuth<HomeProps>(Home)
 
 export const getServerSideProps : GetServerSideProps = async (context) =>  {
   const queryPage = Number(context.query.page) || 1
