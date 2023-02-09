@@ -4,7 +4,7 @@ import { RecipeMock } from "../../src/test-tools/mocks/Recipes";
 import { server } from "../../src/test-tools/msw-handlers";
 import { render, screen } from "../../src/test-tools/test-utils";
 import { Recipe } from "../../src/types";
-import RecipeDetails, { getServerSideProps } from "../../pages/recipes/[id]";
+import { RecipeDetails, getServerSideProps } from "../../pages/recipes/[id]";
 
 beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())

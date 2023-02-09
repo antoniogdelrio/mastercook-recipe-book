@@ -1,4 +1,3 @@
-import Home, { getServerSideProps } from "../../pages/index";
 import "@testing-library/jest-dom"
 import { fireEvent, render, screen, waitFor, waitForElementToBeRemoved } from "../test-tools/test-utils";
 import userEvent from "@testing-library/user-event";
@@ -6,6 +5,7 @@ import { server } from "../test-tools/msw-handlers";
 import { GetServerSidePropsContext, PreviewData } from "next";
 import { ParsedUrlQuery } from "querystring";
 import { RecipesMock } from "../test-tools/mocks/Recipes";
+import { Home, getServerSideProps } from "../../pages/index";
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockImplementation(() => ({

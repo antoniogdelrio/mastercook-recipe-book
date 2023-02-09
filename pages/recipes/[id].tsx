@@ -1,4 +1,5 @@
 import { GetServerSideProps } from "next";
+import withAuth from "../../src/components/HOCs/withAuth";
 import IngredientsList from "../../src/components/organisms/IngredientsList/IngredientsList";
 import PreparationSection from "../../src/components/organisms/PreparationSection/PreparationSection";
 import RecipeHead from "../../src/components/organisms/RecipeHead/RecipeHead";
@@ -9,7 +10,7 @@ interface Props {
     recipe: Recipe
 }
 
-export default function RecipeDetails ({ recipe } : Props) {
+export function RecipeDetails ({ recipe } : Props) {
     return (
         <article>
             <RecipeHead
@@ -28,6 +29,8 @@ export default function RecipeDetails ({ recipe } : Props) {
         </article>
     )
 }
+
+export default withAuth<Props>(RecipeDetails)
 
 export const getServerSideProps : GetServerSideProps = async (context) => {
     const recipeId = context.query.id
