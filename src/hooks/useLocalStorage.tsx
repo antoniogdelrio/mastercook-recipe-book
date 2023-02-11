@@ -16,14 +16,8 @@ export default function useLocalStorage (key: string, initialValue?: string) {
         localStorage.setItem(key, newValue)
     }
 
-    const removeValue = () => {
-        setValue('')
-        localStorage.removeItem(key)
-    }
-
     return [
         value,
-        editValue,
-        removeValue
+        editValue
     ] as const
 }

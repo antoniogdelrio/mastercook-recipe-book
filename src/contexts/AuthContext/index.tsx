@@ -4,8 +4,7 @@ import useLocalStorage from "../../hooks/useLocalStorage"
 import * as authService from '../../services/auth'
 
 interface AuthContextTypes {
-    login: (email: string, password: string) => void,
-    logout: () => void,
+    login: (email: string, password: string) => Promise<boolean>,
     isAuthenticated: boolean,
     userData: {
         username: string | null
@@ -18,7 +17,7 @@ const AuthContextProvider = ({
     children
 } : React.PropsWithChildren) => {
     const [username, setUsername] = useState<string | null>(null)
-    const [token, setToken, removeToken] = useLocalStorage('token')
+    const [token, setToken] = useLocalStorage('token')
     const router = useRouter()
 
     const login = async (email : string, password : string) => {
@@ -27,22 +26,18 @@ const AuthContextProvider = ({
             setUsername(response.data.username)
             setToken(response.data.token)
             router.push('/')
+            return true
         } catch (err) {
             setUsername(null)
+            return false
         }
      }
-
-    const logout = () => {
-        setUsername(null)
-        removeToken()
-    }
 
     const isAuthenticated = Boolean(token)
 
     return (
         <AuthContext.Provider value={{
             login,
-            logout,
             isAuthenticated,
             userData: {
                 username
