@@ -4,14 +4,13 @@ import { useRouter } from "next/router"
 import Login from "../../pages/login"
 import { fireEvent, render, screen, waitFor } from "../test-tools/test-utils"
 
-
 const SUCCESS_CREDENTIALS = {
     email: 'john@doe.com',
     password: 'jd2023'
 }
 
 jest.mock('../services/auth.ts', () => ({
-    login: async function login (email: string, password: string) {
+    login: jest.fn().mockImplementation(async function login (email: string, password: string) {
         await (new Promise(res => setTimeout(res, 500)))
         if (email === SUCCESS_CREDENTIALS.email && password === SUCCESS_CREDENTIALS.password) {
             return {
@@ -20,8 +19,10 @@ jest.mock('../services/auth.ts', () => ({
                     token: '123456'
                 }
             }
+        } else {
+            throw new Error('Error')
         }
-    }
+    })
 }))
 
 jest.mock('next/router', () => {
@@ -69,6 +70,30 @@ describe('<Login />', () => {
         
         await waitFor(() => {
             expect(spyPush).toHaveBeenCalledWith('/')
+        })
+    })
+
+    it('should\'t redirect to the home page if login failed, and should raise an error', async () => {
+        render(<Login />)
+        
+        const emailInput = screen.getByRole('textbox', {
+            name: 'Email'
+        })
+
+        const passwordInput = screen.getByPlaceholderText('Password')
+
+        const signInButton = screen.getByRole('button', {
+            name: 'Sign in'
+        })
+        fireEvent.change(emailInput, { target: { value: 'wrong@email.com' } })
+        fireEvent.change(passwordInput, { target: { value: 'wrongpass' } })
+
+        userEvent.click(signInButton)
+
+        await waitFor(() => {
+            screen.getByRole('alert', {
+                name: 'Your credentials are incorrect. Please try again.'
+            })
         })
     })
 })
