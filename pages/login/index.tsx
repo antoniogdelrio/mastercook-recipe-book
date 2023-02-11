@@ -4,16 +4,26 @@ import Button from "../../src/components/atoms/Button/Button"
 import Logo from "../../src/components/atoms/Logo/Logo"
 import TextInput from "../../src/components/atoms/TextInput/TextInput"
 import { AuthContext } from "../../src/contexts/AuthContext"
+import { GeneralContext } from "../../src/contexts/GeneralContext"
 import styles from "./Login.module.scss"
 
 export default function Login () {
     const { login } = useContext(AuthContext)
+    const { showSnack } = useContext(GeneralContext)
 
     const emailRef = useRef<HTMLInputElement>(null)
     const passwordRef = useRef<HTMLInputElement>(null)
 
-    const doLogin = () => {
-        login(emailRef.current?.value || '', passwordRef.current?.value || '')
+    const doLogin = async () => {
+        const isLoginSuccessfull = await login(emailRef.current?.value || '', passwordRef.current?.value || '')
+
+        if (!isLoginSuccessfull) {
+            showSnack({
+                title: 'Login failed',
+                description: 'Your credentials are incorrect. Please try again.',
+                color: 'error'
+            })
+        }
     }
 
     return (
