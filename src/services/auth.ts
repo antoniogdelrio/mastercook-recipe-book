@@ -1,9 +1,8 @@
 import 'isomorphic-fetch'
-import { AUTH_URL } from '../constants/apiUrls'
 
 export async function login (email : string, password : string) {
     // Fake auth
-    await (new Promise(res => setTimeout(res, 3000)))
+    await (new Promise(res => setTimeout(res, 500)))
 
     if (email === 'admin@admin.com' && password === 'xpto1234') {
         return {

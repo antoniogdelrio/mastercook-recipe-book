@@ -4,7 +4,9 @@ import {
   QueryClient,
   QueryClientProvider
 } from '@tanstack/react-query'
+import AuthContextProvider from '../contexts/AuthContext'
 import Layout from '../components/Layout/Layout'
+import GeneralContextProvider from '../contexts/GeneralContext'
 
 const queryClientMock = new QueryClient({
   defaultOptions: {
@@ -22,9 +24,13 @@ beforeEach(() => {
 const AllTheProviders = ({ children } : React.PropsWithChildren) => {
     return (
         <QueryClientProvider client={queryClientMock}>
-            <Layout>
-                {children}
-            </Layout>
+            <GeneralContextProvider>
+              <AuthContextProvider>
+                <Layout>
+                    {children}
+                </Layout>
+              </AuthContextProvider>
+            </GeneralContextProvider>
         </QueryClientProvider>
     )
 }

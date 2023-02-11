@@ -6,6 +6,7 @@ import {
   QueryClientProvider
 } from '@tanstack/react-query'
 import AuthContextProvider from '../src/contexts/AuthContext'
+import GeneralContextProvider from '../src/contexts/GeneralContext'
 import Head from 'next/head'
 
 const queryClient = new QueryClient()
@@ -17,11 +18,13 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>Mastercook Recipe Book</title>
       </Head>
       <QueryClientProvider client={queryClient}>
-        <AuthContextProvider>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </AuthContextProvider>
+        <GeneralContextProvider>
+          <AuthContextProvider>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </AuthContextProvider>
+        </GeneralContextProvider>
       </QueryClientProvider>
     </>
   )
