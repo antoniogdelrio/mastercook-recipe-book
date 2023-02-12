@@ -16,6 +16,6 @@ export default function withAuth <P extends Props> (Component: NextPage<P>) {
             }
         }, [])
     
-        return (<Component  {...props} />)
+        return (isAuthenticated ? <Component  {...props} /> : null)
     }
 }
